@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>네이버 따라만들기</title>
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
+    <!-- link에서 rel을 이용해서 역할을 지정해준다. -->
+    <link rel="stylesheet" href="./naver.css" />
+    <!-- html파일에서 css파일 위치를 링크를 이용해서 알려줘한다!.  -->
+    <link rel="stylesheet" href="./webfont.css" />
+</head>
+
+<body>
+    <header>
+        <div class="center-align">
+            <!-- div에 id를 지정해줘서 css파일에서 id값을 이용해서 꾸며준다. -->
+            <!-- css는 기본적으로 속성명: 값; 속성명2: 값2;  의 형태로 구성되있다. -->
+            <!-- 가운데 정렬용 div, css를 써서 가운데 정렬한다. 
+                div를 가운데 정렬했기 때문에. 그 안에 컨텐츠들의 위치는 따로 지정 해야 한다. -->
+            <!-- div태그는 개발자도구에서 보면 가로영역을 전부 다 차지한다.-->
+            <!-- 예전에는 div태그별로 id를 지정했는데 지금은 그냥 역할별로 이름을 바꾸면 된다. header,nav,main,footer -->
+            <div id="header-top">
+                <span>네이버를 시작페이지로 > |</span>
+                <span>쥬니어네이버 |</span>
+                <span>해피빈</span>
+            </div>
+            <div id="header-search">
+                <!-- id는 고유함 즉 같은 id를 여러번 사용 불가능하다., class는 같은 class이름을 여러번 사용 할 수 있다. -->
+                <a href="http://www.naver.com">
+                    <h1>
+                        <span>네이버</span>
+                        <!-- attribute 부가정보로 속성을 추가해준다! -->
+                        <!-- h를 이용해서 헤딩을 중요도에 따라 1~6까지 설정해 줄 수 있다. -->
+                        <!-- 주석은 영어로 comment, 속성은 attribute -->
+                    </h1>
+                </a>
+                <h2 class="blind">검색창</h2>
+                <!-- form 에 action을 넣으면 사용자가 입력한 내용을 action의 주소로 보낸다는 의미 -->
+                <form action="https://search.naver.com/search.naver?sm=top_hty&fbm=0&ie=utf8&query=">
+                    <fieldset>
+                        <legend class="blind">검색</legend>
+                        <input />
+                        <span id="search-keyboard"></span>
+                        <span id="search-history"></span>
+                        <!-- button에 type=button을 주면 form의 액션이 작동 안하고, submit을 주면 작동한다.
+                        아무 값도 안주게되면 form의 action이 작동한다. -->
+                        <button>
+                            <span class="blind">검색</span>
+                            <span id="search-image"></span>
+                            <!-- 버튼은 보여야하고 글씨는 안보여야 하니까 글씨에만 blind를 넣어준다 -->
+                        </button>
+
+                        <!-- 클릭이 되는 버튼 -->
+                        <!-- <input type="checkbox" /> -->
+                        <!-- 체크박스는 각각 선택취소가 가능한 버튼, 각각 둘다 체크 할 수 있다. -->
+                        <!-- <input type="radio" name="group" />
+                    <input type="radio" name="group" />
+                    라디오 버튼은 name으로 묶어서 택1 하게 만들수 있다. 즉 1개만 체크 가능. -->
+                    </fieldset>
+                </form>
+            </div>
+    </header>
+    <nav>
+        <div class="center-align relative">
+            <!-- 실시간 검색어 만들기 -->
+            <div id="search-ranking">
+                <h2 class="blind">실시간 검색어</h2>
+                <div>
+                    <span id=rank-number>1</span>
+                    <span id=rank-title>하은수</span>
+                </div>
+                <ul>
+                    <li>
+                        <span class=rank-number>1</span>
+                        <span class=rank-title>하은수</span>
+                    </li>
+                    <li>
+                        <span class=rank-number>2</span>
+                        <span class=rank-title>하은수</span>
+                    </li>
+                    <li>
+                        <span class=rank-number>3</span>
+                        <span class=rank-title>하은수</span>
+                    </li>
+                    <li>
+                        <span class=rank-number>4</span>
+                        <span class=rank-title>하은수</span>
+                    </li>
+                    <li>
+                        <span class=rank-number>5</span>
+                        <span class=rank-title>하은수</span>
+                    </li>
+                    <li>
+                        <span class=rank-number>6</span>
+                        <span class=rank-title>하은수</span>
+                    </li>
+                    <li>
+                        <span class=rank-number>7</span>
+                        <span class=rank-title>하은수</span>
+                    </li>
+                    <li>
+                        <span class=rank-number>8</span>
+                        <span class=rank-title>하은수</span>
+                    </li>
+                    <li>
+                        <span class=rank-number>9</span>
+                        <span class=rank-title>하은수</span>
+                    </li>
+                    <li>
+                        <span class=rank-number>10</span>
+                        <span class=rank-title>하은수</span>
+                    </li>
+                </ul>
+                <!-- <div id="z-example"></div> -->
+                <!-- z-index 예제 -->
+            </div>
+            <ul id="nav-menu">
+                <!-- -----나중에 다른 ul li를 작성할때 css가 겹치게 되서 id 값을 넣어준다------- -->
+                <!-- ul = unordered list 정렬되지 않은 리스트 -->
+                <!-- ol = ordered item 정렬된 리스트 번호가 순서대로 들어가진다. -->
+                <li>
+                    <!-- list item -->
+                    <a href="">
+                        <span></span>
+                        <span class="blind">메일</span>
+                    </a>
+                </li>
+                <li><a href=""><span></span><span class="blind">카페</span></a></li>
+                <li><a href=""><span></span><span class="blind">블로그</span></a></li>
+                <li><a href=""><span></span><span class="blind">지식in</span></a></li>
+                <li><a href=""><span></span><span class="blind">네이버쇼핑</span></a></li>
+                <li><a href=""><span></span><span class="blind">네이버페이</span></a></li>
+                <li><a href=""><span></span><span class="blind">사전</span></a></li>
+                <li><a href=""><span></span><span class="blind">뉴스</span></a></li>
+                <li><a href=""><span></span><span class="blind">증권</span></a></li>
+                <li><a href=""><span></span><span class="blind">부동산</span></a></li>
+                <li><a href=""><span></span><span class="blind">지도</span></a></li>
+                <li><a href=""><span></span><span class="blind">영화</span></a></li>
+                <li><a href=""><span></span><span class="blind">뮤직</span></a></li>
+                <li><a href=""><span></span><span class="blind">책</span></a></li>
+                <li><a href=""><span></span><span class="blind">웹툰</span></a></li>
+            </ul>
+            <div class="nav-divider"></div>
+            <ul>
+                <li class="more"><a href=""><span></span><span class="blind">더보기</span></a></li>
+            </ul>
+        </div>
+
+    </nav>
+    <main>
+        <div id="main-centered" class="center-align">
+            <!-- 메인에서 첫번째 블록 -가로로 분할했을시- 광고, 로그인 -->
+            <div id="main-first-block">
+                <div id="main-ad"></div>
+                <div id="main-login">
+                    <h3 class="blind">로그인</h3>
+                    <div class="login-wrapper">
+                        <span class="login-text">네이버를 더 안전하고 편리하게 이용하세요.</span>
+                        <a href="https://nid.naver.com/nidlogin.login?mode=form&url=https%3A%2F%2Fwww.naver.com">
+                            <span class="blind">NAVER 로그인</span>
+                            <span class="login-image"></span>
+                        </a>
+                        <a class="login-signup"
+                            href="https://nid.naver.com/user2/V2Join.nhn?m=agree&lang=ko_KR&cpno=">회원가입</a>
+                    </div>
+                </div>
+            </div>
+            <!-- 두번째 블록 연합뉴스, 언론사목록, 날씨, 2번째광고 -->
+            <div id="main-second-block">
+                <!-- 두번째 블록은 가로로 자르는게 불가능 하니 세로로 자른다. 세로로 묶은 태그들을 div로 한번 더 감싼다. -->
+                <div class="float-left">
+                    <div id="main-ytn">
+                        <h3>연합뉴스</h3>
+                        <!-- h3에 margin-collapsing이 있다 -->
+                        <ol>
+                            <li>뉴스1</li>
+                        </ol>
+                    </div>
+                    <div id="main-newstand">
+                        <h3>뉴스 스탠드</h3>
+                        <ul>
+                            <li><img src="./경제.png" alt="경제" /></li>
+                            <li><img src="./경향신문.png" alt="경향신문" /></li>
+                            <li><img src="./과학동아.png" alt="과학동아" /></li>
+                            <li><img src="./국민일보.png" alt="국민일보" /></li>
+                            <li><img src="./국방일보.png" alt="국방일보" /></li>
+                            <li><img src="./노동법률.png" alt="노동법률" /></li>
+                            <li><img src="./뉴스토마토.png" alt="뉴스토마토" /></li>
+                            <li><img src="./데일리한국.png" alt="데일리한국" /></li>
+                            <li><img src="./독서신문.png" alt="독서신문" /></li>
+                            <li><img src="./동아일보.png" alt="동아일보" /></li>
+                            <li><img src="./디자인정글.png" alt="디자인정글" /></li>
+                            <li><img src="./매일경제.png" alt="매일경제" /></li>
+                            <li><img src="./법률신문.png" alt="법률신문" /></li>
+                            <li><img src="./브릿지경제.png" alt="브릿지경제" /></li>
+                            <li><img src="./산업일보.png" alt="산업일보" /></li>
+                            <li><img src="./서울신문.png" alt="서울신문" /></li>
+                            <li><img src="./아주경제.png" alt="아주경제" /></li>
+                            <li><img src="./프라임경제.png" alt="프라임경제" /></li>
+                            <!-- <li><img src="./thesave.png" alt="thesave" /></li>
+                            <li><img src="./upi뉴스.png" alt="upi뉴스" /></li> -->
+                            <!-- alt의 내용은 화면에는 나오지 않지만 코드를 봤을때 볼 수 있다. -->
+                        </ul>
+                    </div>
+                </div>
+                <div class="float-left">
+                    <div id="main-weather"></div>
+                    <div id="main-second-ad"></div>
+                </div>
+            </div>
+            <!-- 세번째 블록 -->
+            <div id="main-third-block">
+                <div id="main-category">
+                    <h3 class="blind">주제별 보기</h3>
+                    <div id="main-category-top">
+                        <button id="subject-all">
+                            <span class="blind">전제 주제 열기</span>
+                            <span></span>
+                        </button>
+                        <div id="subject-list">
+                            <div class="opacity left"></div>
+                            <ul>
+                                <li>리빙</li>
+                                <li>푸드</li>
+                                <li>스포츠</li>
+                                <li>자동차</li>
+                                <li>패션뷰티</li>
+                                <li>부모i</li>
+                                <li class="highlight">건강</li>
+                                <li>웹툰</li>
+                                <li>게임</li>
+                                <li>TV연애</li>
+                                <li>뮤직</li>
+                                <li>영화</li>
+
+                            </ul>
+                            <div class="opacity right"></div>
+                        </div>
+                        <button id="subject-prev">
+                            <span class="blind">이전 주제</span>
+                            <span></span>
+                        </button>
+                        <button id="subject-next">
+                            <span class="blind">다음 주제</span>
+                            <span></span>
+                        </button>
+                    </div>
+                </div>
+                <div id="main-shopping">
+                    <!-- iframe을 이용해서 하나의 웹페이지 안에 다른 웹페이지를 넣을 수도 있다. -->
+                    <iframe src="https://castbox.shopping.naver.com/shopbox/main.nhn?" frameborder="0"
+                        scrolling="no"></iframe>
+
+                </div>
+            </div>
+            <!-- 마지막 블록 -->
+            <div id="main-fourth-block">
+                <div id="main-event">
+                    <h3>이벤트</h3>
+                </div>
+                <div>
+                    <div id="main-third-ad"></div>
+                </div>
+            </div>
+
+
+
+
+            <h3>뉴스</h3>
+            <h3>법률</h3>
+            <h3>쇼핑</h3>
+        </div>
+    </main>
+    <footer>
+        <!-- div태그 3개가 모두 footer역할을 한다. 역할이 다 같은 역할을 하면 1개의 div로 묶어줘도 된다. -->
+        <div>공지사항</div>
+        <div>creators</div>
+        <div>회사소개</div>
+    </footer>
+</body>
+
+</html>
+
+<!-- css를 할때는 구역을 가로로 먼저 나눠보고. 그 나눠진 구역 안에서 다시 가로로 먼저 나눠보고 세로로도 나눠본다 -->
+<!-- div 태그가 구역들을 나눠주는 태그다! -->
+<!-- div는 엥간하면 시맨틱으로 바꿔서 역할에 맞게 이름을 정해주자 -->
+
+<!-- 가운데 정렬되는 부분은 div로 따로 구역을 잡아준다 -->

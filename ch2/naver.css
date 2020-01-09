@@ -1,0 +1,847 @@
+* {
+    box-sizing: border-box;
+}
+/* *는 css에서 모든태그를 의미한다. */
+/* --------------------------------------------------------------------------------------- */
+
+
+/* 선택자-selector 
+div#html의id 중괄호
+를 이용해서 css에서 html로 연결해준다.
+*/
+/* div는 자주 쓰이니까 생략하고 #id만 써도 되는데 다른 태그들은 꼭 써줘야한다 */
+
+/* --------------------------------------------------------------------------------------- */
+
+html, body {
+    margin: 0;
+    padding: 0;
+    font-family: Dotum,'돋움',Helvetica,"Apple SD Gothic Neo",sans-serif;
+}
+/*  처음 작업할때 브라우저에서 기본적으로 제공하는 
+    html과 body에 적용되어 있는 margin과 padding을 지우고 시작한다. */
+
+/* --------------------------------------------------------------------------- */
+.inline-block {
+    display: inline-block;
+}
+
+.float-left {
+    float: left;
+}
+
+/* h태그들은 기본적으로 쓸데없는 margin을 가지고 있어서 없애주는게 좋다.  */
+h1, h2, h3, h4, h5, h6 {
+    margin: 0;
+}
+
+.center-align {
+    margin: 0 auto; 
+    width: 1080px;    
+}
+/* px는 상대적인 길이다. 각 모니터의 넓이에 맞춰서 비례적으로 변화한다. */
+
+#header {
+    height: 170px;
+}
+
+#header-top {
+    float: right;
+    margin-top: 8px;
+}
+/* float를 쓰게되면 다른 태그들과 영역이 겹치게 되는데 float를 쓰면 둥둥 떠있다고 생각하면 되는데
+-----둥둥 떠있는게 다른 태그들 위에 올라가는게 아니고 다른 영역이라고 생각하면 된다.-----------
+다른 태그들과 겹치지 않게 하려면 다른 태그에 clear: both를 넣어주면 된다. */
+
+/* header-top 에서 각 span에 맞는 스타일 입력해준다. 네이버를 시작페이지로, 쥬니어네이버, 해피빈  */
+#header-top span {
+    color:#888;
+    letter-spacing: -1px;
+    font-size: 11px;
+    line-height: 22px;    
+}
+/* 컬러 입력시 같은글자 2개를 1개로 줄일 수 있다.
+ex- aabbcc = abc , 888888 = 888  
+letter-spacing은 글자 사이의 간격.
+line-height는 폰트의 높이를 조절한다. line-height를 줄이면 세로로 줄어든다.
+*/
+
+/* ---------------------------------------------------------------------------- */
+#header-search {
+    clear: both;
+    padding: 45px;
+}
+
+#header-search  h1 {
+    width: 198px;
+    height: 48px;
+    display: inline-block;
+    background-image: url(./sp_search.png);
+    background-position: -4px -4px;
+    background-repeat: no-repeat;
+    vertical-align: middle;
+    position: relative;
+    top: -5px;
+    left: 1px;
+    
+    /* 백그라운드 리핏이 안되도록 적용 */
+    /* background: url(./sp_search.png) -4px -10px no-repeat; 이렇게 한바에 줄일 수도 있다. */
+    
+}
+/* text-indent 는 들여쓰기 정도, overflow: hidden 은 범위에서 벗어난 부분 안보이게 하는거 */
+
+/* header-search 안에 있는 h1을 지정할수 있다. 자식,자손 다른 개념이다.
+자식은 바로 아래 단계에 있는것
+자손은 2단계 3단계 아래에 있는것도 포함한다.
+자식을 선택할때는  부모 > 자식
+자손을 선택할때는 부모 띄어쓰기 자식*/
+
+/* --------------------------------------------------------------------------------------- */
+
+#header-search  h1 span {
+    display: none;
+}
+
+#header-search  a {
+    text-decoration: none;
+}
+/* a태그에는 밑줄이 붙어서 나오게 되는데 text-decoration: none을 이용해서 밑줄을 없앤다. */
+
+/* --------------------------------------------------------------------------------------- */
+
+#header-search h2 {
+    display: none;
+}
+/* 코드상에는 있지만 실제 화면에 안보이는 항목은 display: none 으로 지워준다 
+이건 시각장애인이 보는 스크린 리더에서도 읽히지 않는다.
+h2정도의 중요한 구조를 잡아주는 역할을 한다.*/
+
+/* --------------------------------------------------------------------------------------- */
+
+#header-search fieldset {
+    margin-left: 18px;
+    /* padding-left: 10px;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    padding-right: 0; */
+    padding: 12px 0 12px 10px;
+    /* paading은 4방향 각각 안쓰고 한번에 위 오른쪽 아래 왼쪽 순으로 입력이 가능하다 */
+    width: 521px;
+    height: 49px;
+    display: inline-block;
+    border: 2px solid #03cf5d;
+    /* border도 4방향 값이 전부 같다면 한번에 써줘도 된다. 
+    2px는 보더 테두리의 굵기, 뒤에는 컬러 #03cf5d 이렇게 하는 법이 HEX표기법-6글자 이라 한다.*/
+    box-sizing: border-box;
+    /* box-sizing: border-box로 바꿔주면 컨텐츠박스+패딩+보더 를 전부 합쳐서 width값을 갖게 된다. */
+    vertical-align: middle;
+    position: relative;
+    /* position을 이용해서 버튼을 옮길때 붙길 원하는 부분에다가 
+    position: relative; 를 넣어준다. */
+}
+/* 검색창의 길이도 줄여줘야한다 header-search feildset */
+
+/* display: block, display: inline-block;
+네이버라는 글씨와 검색창의 길이가 1080을 모두 차지하지 않는데도 가로로 안붙고 세로로 정렬되어 있는데
+div는 기본적으로 display: block 속성을 가지고 있는데 이 값이 가로줄 전체를 차지하게끔 만든다. 
+inline-block으로 해주면 나란히 놓을 수 있다.*/
+
+/* --------------------------------------------------------------------------------------- */
+
+.blind {
+    position: absolute;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    margin: -1px;
+    width: 1px;
+    height: 1px;
+}
+
+/* --------------------------------------------------------------------------- */
+
+#header-search fieldset input {
+    border: none;
+    padding: 0;
+    outline: none;
+    vertical-align: top;
+    width: 395px;
+    height: 23px;
+
+}
+/* css는 스타일을 지정해주지 않아도 기본적으로 브라우저에서 스타일을 넣어 주는데 
+각 브라우저마다 다른 스타일을 주기 때문에 그걸 지우는게 좋다.  
+border: none;   
+boder만 지우면 아웃라인은 남아서 파란색 선으로 보이게 된다
+outline: none; 으로 아웃라인도 지울 수 있다.*/
+
+/* 형제 태그끼리 height가 다르면 정렬이 다르게 된다. 
+맞춰주고 싶은 태그들에 vertical-align을 같은 값으로 줘서 라인을 맞춰준다. */
+
+/* --------------------------------------------------------------------------- */
+
+/* 검색창에 있는 버튼! */
+/* 버튼에도 브라우저가 기본적으로 적용해준 border,padding,background들이 들어가 있다. 다 지워주자.
+padding: 0 , border: none, background */
+#header-search fieldset button {
+    width: 49px;
+    height: 49px;
+    padding: 0;
+    border: none;
+    background: #03cf5d;
+    /* 포지션을 이용해서 버튼의 위치를 옮겨 준다!! */
+    /* position을 이용해서 버튼을 옮길때 붙길 원하는 부분에다가 
+    position: relative; 를 넣어준다. */
+    position: absolute;
+    right: -2px;
+    top: -2px;
+}
+
+/* --------------------------------------------------------------------------- */
+
+/* 버튼에 이미지에 있는 돋보기 모양을 박아주자! 이미지 불러오고, 위치 잡아주고, 리핏 지우고
+이미지 크기 지정해주고, 컨텐츠 영역만큼 차지하는데 span에 컨텐츠가 없어서. 0x0으로 나오는데
+컨텐츠를 지정 할 수 있게 display: inline-block 해준다 */
+/* 이미지에 가운데 정렬을 해줘야 한다. 포지션으로 하면 쉬울텐데 아직 포지션 안배웟으니 margin을 이용해보자. */
+
+#search-keyboard {
+    background-image: url(https://s.pstatic.net/static/www/img/uit/2019/sp_search.svg);
+    background-repeat: no-repeat;
+    background-position: -33px -60px;
+    width: 19px;
+    height: 11px;
+    display: inline-block;
+    vertical-align: middle;
+    margin: 0 6px;    
+}
+
+/* paddin의 경우  위 오른쪽 아래 왼쪽 ex- 0 6px 0 6px 인데 2개씩 반복되면 그냥 0 6px 만 써도 된다.  
+    숫자 3개만 써있으면 위 우좌 아래 ex- 0 6px 10px 이면 위0 좌우6씩 아래 10px
+*/
+
+#search-history {
+    background-image: url(https://s.pstatic.net/static/www/img/uit/2019/sp_search.svg);
+    background-repeat: no-repeat;
+    background-position: -87px -60px;
+    width: 9px;
+    height: 4px;
+    display: inline-block;
+    vertical-align: middle;
+    margin: 0 6px;
+}
+
+#search-image {
+    background-image: url(./sp_search.png);
+    background-position: -3px -60px;
+    background-repeat: no-repeat;
+    width: 21px;
+    height: 21px;
+    display: inline-block;
+    margin: 14px;
+}
+
+/* --------------------------------------------------------------------------- */
+
+/* 
+    position    relative = 상대적으로 위치를 바꿔줄 수 있다. Static인 경우 현재위치를 기준으로 움직인다.
+                absolute = 절대적인. 전체 화면을 기준으로 위치를 결정한다. 항상 그런건 아니고
+                fixed, absolute, relative을 상위태그로 올라가면서 찾아서 그 값에 맞게 들어간다.
+                만약 계속 static이라면 결국 전체화면으로 가서 적용된다.
+                ex- 내가 absolute값으로 어딘가에 붙이고 싶다면 그 어딘가의 position을 fixed, absolute, relative로 바꿔준다.    
+                
+                fixed는 화면에서 스크롤을 올리거나 내려도 그 위치를 유지하며 따라 움직인다.
+                컨테이닝블록을 잘 알아야 한다!!
+*/
+
+/* --------------------------------------------------------------------------- */
+
+nav {
+    
+    height: 46px;
+    border-top: 1px solid #f1f3f6;
+    border-bottom: 1px solid #d1d8e4
+}
+
+nav ul {
+    display: inline-block;
+    margin: 0;
+    padding: 16px 0 0 4px;
+    list-style: none;
+    /* 리스트 전체인 ul에서 마진과 패딩 지우고, 리스트에 기본으로 나오는 동그라미를 list-style: none 으로 지워준다 */
+}
+
+#nav-menu li {
+    display: inline-block;
+    /* 리스트가 가로로 1줄 전체를 차지하는 상태니까, 각 리스트가 가로로 정렬되게 inline-block 해준다. */
+}
+
+
+    /* 각 항목마다 겹치는걸 한번에 묶어서 값을 주면 코딩하기 편해짐 */
+#nav-menu li span:first-child {
+    height: 16px;
+    display: inline-block;
+    /* span이기 때문에 inline-block 으로 */
+    background-image: url(https://s.pstatic.net/static/www/img/uit/2019/sp_nav_v191128.png);
+    background-repeat: no-repeat;
+    margin-left: 10px;
+}
+
+/* :nth-child는 실무에서는 잘 안쓴다. 유지보수하기 힘들기때문. 순서에 의존하기 때문에
+나중에 수정할때 전부 다 수정 해야할 수도.. 있다. 
+차라리 class를 하나씩 주는 것이 더 좋을 수 있다.     */
+
+
+
+/* -------원래는 그냥 nav li 였는데 나중에 다른 작업과 겹치게 되서 id 값으로 바꿔준거임!
+    위에 써놓은거 고대로 된거임------------- */
+
+
+
+#nav-menu li:first-child span:first-child { 
+/* nav안에 li중에 첫번째 자손의, 첫번째 span */
+    width: 25px;
+    background-position: -259px -259px;
+    margin-left: 0;
+    /* 첫번째 것만 마진이 없어야 하기 때문에 덮어 씌워 준다.
+    덮어 씌우는 것도 우선순위가 있다. 제로초 블로그 보면 정리된거 있다.
+    1. 기본적으로 아래줄에 나오는게 우선순위가 더 높다. // 지금의 경우는 위에께 우선순위가 더 높게 할 수도 있다.
+    2. !important > inline > id > class > 다른 attribute 속성 > tag 순서로 우선순위가 높다.
+    2-1. 보통은 id > class > tag 이 3가지를 많이 쓴다.
+    3. 우선순위가 같다면 개수고 많은 css가 우선순위가 높다. 
+    !important는 치트키다. 어디든 붙여주기만 하면 최우선으로 바뀐다. 
+    나중에 헷갈리면 최후의 방법으로 !important를 쓰는데, 여러군데 쓰게되면 의미가 퇴색되니 최대한 지양하자.
+    */
+}
+
+#nav-menu li:nth-child(2) span:first-child {
+    width: 27px;
+    background-position: -37px -259px;    
+}
+
+#nav-menu li:nth-child(3) span:first-child {
+    width: 40px;
+    background-position: -182px -156px;    
+}
+
+#nav-menu li:nth-child(4) span:first-child {
+    width: 40px;
+    background-position: -126px -130px;    
+}
+
+#nav-menu li:nth-child(5) span:first-child {
+    width: 26px;
+    background-position: -294px 0;    
+}
+
+#nav-menu li:nth-child(6) span:first-child {
+    width: 25px;
+    background-position: -71px -285px;    
+}
+
+#nav-menu li:nth-child(7) span:first-child {
+    width: 32px;
+    background-position: -244px -208px;   
+}
+
+#nav-menu li:nth-child(8) span:first-child {
+    width: 26px;
+    background-position: -294px -182px;   
+}
+
+#nav-menu li:nth-child(9) span:first-child {
+    width: 28px;
+    background-position: -200px -208px;   
+}
+
+#nav-menu li:nth-child(10) span:first-child {
+    width: 26px;
+    background-position: -294px -104px;   
+}
+
+#nav-menu li:nth-child(11) span:first-child {
+    width: 40px;
+    background-position: -124px -156px;   
+}
+
+#nav-menu li:nth-child(12) span:first-child {
+    width: 27px;
+    background-position: -148px -259px;   
+}
+
+#nav-menu li:nth-child(13) span:first-child {
+    width: 27px;
+    background-position: -222px -259px;   
+}
+
+#nav-menu li:nth-child(14) span:first-child {
+    width: 26px;
+    background-position: -294px -130px;   
+}
+
+#nav-menu li:nth-child(15) span:first-child {
+    width: 13px;
+    background-position: -79px -78px;   
+}
+
+#nav-menu li:nth-child(16) span:first-child {
+    width: 27px;
+    background-position: -185px -259px;   
+}
+
+#nav-menu li.more:first-child span:first-child {
+    width: 55px;
+    background-position: -66px -104px;
+}
+
+/* 실시간검색 순위에 마우스 커서를 올리면 1~20위가 나오는데 네이버에서는 js를 이용했지만,
+지금은 css를 공부하는 과정이니 hover를 이용해서 해본다! */
+
+#search-ranking {
+    position: absolute;
+    top: 14px;
+    right: 0;
+    width: 198px;
+    height: 20px;
+}
+
+/* 마우스를 올리면 스타일을 바꿔주는 태그 :hover */
+#search-ranking:hover ul {
+display: inline-block;
+}
+
+#search-ranking ul {
+    display: none;
+    list-style: none;
+    padding: 17px;
+    margin: 0;
+    width: 332px;
+    height: 334px;
+    border: 1px solid #aaa;
+    background: white;
+    position: absolute;
+    top: -15px;
+    right: 0;
+}
+
+/* z-index의 예.  z-index에 1,100 등등 숫자를 줘서 서로 순위를 바꿀수 있다, 어떤게 더 위로 오는지. */
+/* !!자식은 z-index가 높아도 부모를 넘어서지 못한다!! 형제 관계에서만 적용 된다. */
+#z-example {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    background-color: yellow;
+}
+
+.relative {
+    position: relative;
+}
+
+.nav-divider {    
+    margin: 18px 16px 0;
+    width: 1px;
+    height: 14px;
+    background: #ebeef3;
+    display: inline-block;
+}
+
+#rank-number {
+    margin-top: -9px;
+    color: #00ab33;
+    font-size: 16px;
+}
+
+#rank-title {
+    letter-spacing: -1px;
+    font-size: 14px;
+}
+
+main {
+    background-color: #f2f4f7;
+    display: inline-block;
+    width: 100%;
+    
+}
+
+/* 메인에서 위 아래 떨어진거 만들어 주기위해 main 태그에 id값을 하나 더 줬다. */
+#main-centered {
+    padding: 8px 10px;
+    width: 1100px;
+}
+
+/* 메인 안에서 각 태그들 간에 margin이 있는데 ex- 오른쪽과 아래에 마진을 둔다. // 이런식으로 규칙을 정해서 하자 */
+
+/* overflow auto혹은 hidden을 줘야 자식들을 margin까지 감쌀 수 있다. */
+
+/* ------------------------------------------------------------------------------- */
+
+/* margin collapsing - 마진상쇄는 좌,우는 일어나지 않지만 상,하는 상쇄가 된다.
+즉 위에서 margin-bottom 20을 주고 아래에서 margin-top 10을주면 아래쪽 margin-top이
+더 작기때문에 위에 margin-bottom으로 들어가 진다. */
+
+/* 즉 margin collapsing은 3가지 타입이 있는데 이를 해결하기 위해서는
+
+부모를 block format contecst로 만들어 주면 된다.
+1. overflow: auto - 이거는 콜랩싱을 없애주지만 부모 영역과 자식 영역에 스크롤이 생겨서 안좋음.
+2. overflow: hidden - 부모 영역은 생기는데 자식이 바깥으로 벗어나게 되서 자식이 안보임, 쓰기 힘듬.
+3. float: left + width: 100% - 부모영역과 자식 둘다 볼 수 있다.
+4. position: absolute - 이건 형제 태그일때도 유용하다.
+5. display: inline-block + width: 100% - 3가지 타입 전부 해결가능. 그리고 가장 쉬움. 부모에 값을 넣어줘야함. */
+
+/* ------------------------------------------------*/
+
+/* inline-block의 가로간의 문제는 float으로 해결하고 
+세로간의 문제는 vertical align top 으로 해결한다. */
+
+#main-first-block {
+    vertical-align: top;
+    display: inline-block;
+    width: 100%;
+}
+
+/* 자식에 있던 마진을 부모로 빼준다. */
+#main-second-block {
+    vertical-align: top;
+    display: inline-block;
+    margin-bottom: 8px;
+}
+
+/* main-second-block 에 .float-left 에 첫번째 자손 -- main-ytn */
+#main-second-block .float-left:first-child {
+    width: 740px;
+    margin-right: 8px;
+}
+
+/* main-second-block 에 .float-left 에 마지막 자손 -- main-newstand */
+#main-second-block .float-left:last-child {
+    width: 332px;
+    vertical-align: top;
+}
+
+#main-ad {
+    float: left;
+    width: 740px;
+    height: 120px;
+    background: #555;
+    margin-right: 8px;
+    margin-bottom: 8px;
+}
+
+#main-login {
+    float: left;
+    width: 332px;
+    height: 120px;
+    /* 세로 높이가 안맞을 경우 vertical-align: top;   을 줘서 끌어올린다 */
+    vertical-align: top;
+    background-color: white;    
+    margin-bottom: 8px;
+}
+
+#main-login .login-wrapper {
+    padding: 15px 25px ;
+}
+
+#main-login .login-wrapper a {
+    display: block;
+    
+}
+
+#main-login .login-text {
+    color: #888;
+    font-size: 12px;
+    line-height: 14px;
+}
+
+#main-login .login-image {
+    margin-top: 12px;
+    background: url(./sp_login_v180727.png) 0 -47px no-repeat;
+    display: inline-block;
+    width: 280px;
+    height: 37px;
+}
+
+    /* 링크는 무조건 a태그로, a태그는 기본 스타일을 가지고 있으니까 기본을 지우고 내 스타일을 입힌다. */
+#main-login .login-signup {
+    float: right;
+    font-size: 12px;
+    line-height: 38px;
+    color: #666;
+    text-decoration: none;
+}
+
+
+/* 마우스 커서 올렸을때 손가락 모양으로 바뀌는거! */
+#main-login .login-signup:hover {
+    text-decoration: underline;
+}
+
+#main-ytn {
+    display: inline-block;
+    width: 740px;
+    height: 46px;
+    background-color: white;    
+    margin-bottom: 8px;
+}
+
+#main-ytn h3, #main-newstand h3 {
+    font-size: 14px;
+    font-family: NanumSquare,Dotum,"돋움",Helvetica,AppleSDGothicNeo,sans-serif;
+    line-height: 16px;
+    padding-top: 15px;
+    padding-left: 15px;
+}
+
+#main-ytn h3, 
+#main-ytn ol {
+    display: inline-block;
+}
+
+#main-newstand {
+    display: inline-block;
+    width: 740px;
+    height: 246px;
+    background-color: white;
+    margin-right: 8px;
+    vertical-align: top;
+}
+
+#main-newstand ul {
+    display: inline-block;
+    margin: 0; 
+    padding: 0;
+    list-style: none;
+}
+
+/* nwstand의 width가 740px 인데 6등분하면 숫자가 더럽게줌떨어진다. 
+그때는 calc소괄호 공식 소괄호 해주면 자동으로 계산해줌 */
+
+#main-newstand li {
+    float: left;
+    width: calc(100% / 6);
+    height: 67px;
+    border-right: 1px solid #f1f3f6;
+    border-bottom: 1px solid #f1f3f6;
+    text-align: center;
+}
+
+/* 가로정렬은 부모태그로 - text-align center -- 세로정렬은 자식에서 - position, top, transform */
+/* 가로 가운데정렬 - text-aligh: center ,, 세로 가운데정렬 position: relative + top:50% + transform: translateY -50%;*/
+/* transform 을 꼭 줘야한다. */
+/* 이미지를 50%만큼 아래로 내리면 이미지의 시작점을 기준으로 하기 떄문에 이미지의 반 만큼 더 내려와 보이는데
+transformY 를 이용해서 이미지의 절반 만큼 -값을 줘서 가운데를 맞춰준다. */
+
+
+#main-newstand li img {
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+#main-newstand h3 {
+    height: 45px;
+    border-bottom: 1px solid #ebeef3
+}
+
+#main-weather {
+    display: inline-block;
+    width: 332px;
+    height: 142px;
+    background-color: white;    
+    margin-bottom: 8px;
+    vertical-align: top;
+}
+
+#main-second-ad {
+    display: inline-block;
+    width: 332px;
+    height: 150px;
+    background: #555;
+    vertical-align: top;
+}
+
+#main-third-block,
+#main-fourth-block {
+    display: inline-block;
+    width: 100%;
+    vertical-align: top;
+}
+
+#main-category {
+    float: left;
+    width: 740px;
+    height: 882px;
+    background-color: white;
+    margin-right: 8px;
+    margin-bottom: 8px;
+}
+
+#main-shopping {
+    float: left;
+    width: 332px;
+    height: 882px;
+    background-color: white;
+    margin-bottom: 8px;
+}
+
+#main-shopping iframe {
+    width: 100%;
+    height: 100%;
+}
+
+#main-event {
+    float: left;
+    width: 740px;
+    height: 130px;
+    background: white;
+    margin-right: 8px;
+    margin-bottom: 8px;
+}
+
+#main-third-ad {
+    float: left;
+    width: 332px;
+    height: 130px;
+    background: #555;
+    
+}
+
+/* inline-block 사이에도 간격이 있어서, 현재 1100px에 딱 맞게 값을 주면 간격이 넘친다.
+해결방법은.. 코딩에서 각 태그 사이에 엔터로 라인브레이킹 해놓은게 반영되기 때문에
+그걸 없애면 해결 된다. 
+하지만 모든 내용을 코딩 할 수는 없기 때문에 다른 방법을 사용하는데,
+1. margin -4px 도 가능하지만 브라우저마다 다르게 적용될 수도 있다.
+2. 왼쪽으로 붙을 태그들에 float left를 사용하는 방법도 있다.
+    대신 이 상황에서는 부모가 float된 자식을 인식하지 못 하는데,
+    해결 방법은 부모가 block format context를 형성하면 된다.
+    1..overflow:auto를 준다.
+    2.. display: inline-block + width 100% 를 사용
+3. inline block을 감싸고 있는 부모div에 fontsize를 0으로 주면 간격이 달라 붙는다.
+    그러나 문제는 자식의 fontsize가 0이 되기때문에 자식 태그에서 fontsize를 다시 지정 해야한다.
+
+--여기선 자식엔 float을 쓰고, 부모엔 display inline block + width 100%를 쓴다. 
+*/
+
+/* ---주제별 보기에 버튼들에 .inline-block을 줄건데 인라인블록간 이상한 공간이 생기기 때문에 
+클래스값에 float left를 준다. ------ */
+
+#main-category-top {
+    display: inline-block;
+    width: 100%;
+    border-bottom: 1px solid #ebeef3;
+}
+
+#subject-list, #subject-all, #subject-prev, #subject-next  {
+    float: left;
+    height: 45px;
+    padding: 0;
+}
+
+
+
+#subject-list {
+    width: 603px;
+    position: relative;
+}
+
+/* 리스트의 가용범위보다 많은 항목을 담고 있을때 사용하는 방법, 옆으로 넘어가게 하는건 js의 역할이니까 여기선 생략 */
+/* ul의 리스트스타일, 마진, 패딩 제거하고 li에 float 레프트 넣어준다 */
+
+/* ---글자가 여러줄로 나올때 접히게 할려면 white-space: nowrap; + overflow: hidden + height 값을 준다. */
+#subject-list ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    height: 45px;
+    width: 700px;
+}
+#subject-list li {
+    float: left;
+    margin-right: 10px;
+    padding: 14px 7px 0;
+    font-weight: 700;
+    font-size: 14px;
+    font-family: NanumSquare,Dotum,"돋움",Helvetica,AppleSDGothicNeo,sans-serif;
+}
+
+/* cf-- fontweight의 기본값은 normal아니면 400이다. */
+
+/* 리스트중에 클릭되면 하이라이트 생기는거 표현해줌 */
+#subject-list li.highlight {
+    border-bottom: 3px solid #00c73c;
+    color: #00ab36;
+    height: 45px;
+}
+
+#subject-all, #subject-prev, #subject-next {
+    position: relative;
+    width: 45px;
+    background: white;
+    border: none;    
+    border-left: 1px solid #ebeef3;    
+}
+
+#subject-all {
+    border-right: 1px solid #ebeef3;
+}
+
+#subject-all span:last-child {
+    position: absolute;
+    top: 15px;
+    left: 12px;
+    width: 20px;
+    height: 14px;
+    background: url(./sp_themecast.png);
+    background-repeat: no-repeat;
+    background-position: -218px -257px;
+}
+
+#subject-prev span:last-child {
+    position: absolute;
+    top: 15px;
+    left: 16px;
+    width: 8px;
+    height: 16px;
+    background: url(./sp_themecast.png);
+    background-repeat: no-repeat;
+    background-position: -320px 0;
+}
+
+#subject-next span:last-child {
+    position: absolute;
+    top: 15px;
+    left: 16px;
+    width: 8px;
+    height: 16px;
+    background: url(./sp_themecast.png);
+    background-repeat: no-repeat;
+    background-position: -320px -52px;
+}
+
+/* 리스트 양쪽 끝에 살짝 가려지는 걸 네이버에서는 이미지를 써서 했는데 
+강좌에서는 opacity를 css로 줘서 해본다. 
+opacity는 불투명도를 의미한다.*/
+/* --추가로 opacity만 주게되면 그 영역에서 균일하게 불투명도가 적용되는데,
+만약 점점 연하게 점점 진하게 이런식으로 그라데이션같은 효과를 주고 싶다면,
+gradient or mask-image를 사용하면 된다.-- */
+
+.opacity {
+    opacity: 0.44;
+    background: white;
+}
+
+.opacity.left {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 45px;
+    width: 15px;
+}
+
+.opacity.right {
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: 45px;
+    width: 15px;
+}
+
